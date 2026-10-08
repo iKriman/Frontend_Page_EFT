@@ -13,7 +13,7 @@ const obtenerRutaImagen = (imagen) => {
   return `${import.meta.env.BASE_URL}${imagen}`;
 };
 
-function VideojuegoCard({ videojuego, onEliminar }) {
+function VideojuegoCard({ videojuego, onAgregarCarrito }) {
   return (
     <article className="card game-card h-100 shadow-sm">
       <div className="game-cover-wrap">
@@ -38,12 +38,12 @@ function VideojuegoCard({ videojuego, onEliminar }) {
           <strong className="game-price">{formatearPrecio(videojuego.precio)}</strong>
           <button
             type="button"
-            className="btn btn-outline-danger btn-sm"
-            onClick={() => onEliminar(videojuego.id)}
-            aria-label={`Eliminar ${videojuego.nombre} del catálogo`}
+            className="btn btn-dark btn-sm"
+            onClick={() => onAgregarCarrito(videojuego)}
+            aria-label={`Agregar ${videojuego.nombre} al carrito`}
           >
-            <i className="bi bi-trash3 me-1" />
-            Eliminar
+            <i className="bi bi-cart-plus me-1" />
+            Agregar al carrito
           </button>
         </div>
       </div>

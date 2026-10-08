@@ -2,7 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import Navbar from './components/Navbar';
 import Filtros from './components/Filtros';
 import VideojuegoList from './components/VideojuegoList';
+import Carrito from './components/Carrito';
 import CatalogoForm from './components/CatalogoForm';
+import CatalogoAdmin from './components/CatalogoAdmin';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import './App.css';
@@ -20,6 +22,7 @@ function App() {
   const [videojuegos, setVideojuegos] = useState([]);
   const [categoria, setCategoria] = useState('Todas');
   const [busqueda, setBusqueda] = useState('');
+  const [carrito, setCarrito] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [errorCarga, setErrorCarga] = useState('');
 
@@ -65,6 +68,11 @@ function App() {
     });
   }, [videojuegos, categoria, busqueda]);
 
+  const totalCarrito = useMemo(
+    () => carrito.reduce((total, item) => total + item.cantidad, 0),
+    [carrito],
+  );
+
   const agregarVideojuego = (nuevoVideojuego) => {
     const videojuego = normalizarVideojuego({
       ...nuevoVideojuego,
@@ -78,12 +86,53 @@ function App() {
 
   const eliminarVideojuego = (id) => {
     setVideojuegos((actuales) => actuales.filter((videojuego) => videojuego.id !== id));
+    setCarrito((actual) => actual.filter((item) => item.id !== id));
+  };
+
+  const agregarAlCarrito = (videojuego) => {
+    setCarrito((actual) => {
+      const existente = actual.find((item) => item.id === videojuego.id);
+
+      if (existente) {
+        return actual.map((item) =>
+          item.id === videojuego.id ? { ...item, cantidad: item.cantidad + 1 } : item,
+        );
+      }
+
+      return [...actual, { ...videojuego, cantidad: 1 }];
+    });
+  };
+
+  const sumarCantidad = (id) => {
+    setCarrito((actual) =>
+      actual.map((item) =>
+        item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item,
+      ),
+    );
+  };
+
+  const restarCantidad = (id) => {
+    setCarrito((actual) =>
+      actual
+        .map((item) =>
+          item.id === id ? { ...item, cantidad: item.cantidad - 1 } : item,
+        )
+        .filter((item) => item.cantidad > 0),
+    );
+  };
+
+  const quitarDelCarrito = (id) => {
+    setCarrito((actual) => actual.filter((item) => item.id !== id));
+  };
+
+  const vaciarCarrito = () => {
+    setCarrito([]);
   };
 
   return (
     <div className="site-shell">
       <header id="inicio">
-        <Navbar totalVideojuegos={videojuegos.length} />
+        <Navbar totalVideojuegos={videojuegos.length} totalCarrito={totalCarrito} />
 
         <section className="hero-section">
           <div className="container hero-grid">
@@ -94,17 +143,13 @@ function App() {
                 <span> comienza aquí.</span>
               </h1>
               <p>
-                Explora títulos para distintos estilos de juego, filtra por categoría y encuentra
-                tu próxima experiencia favorita.
+                Explora títulos conocidos, filtra por categoría y agrega tus favoritos al carrito
+                de compra.
               </p>
 
               <div className="d-flex flex-wrap gap-2 mt-4">
-                <a className="btn btn-dark btn-lg" href="#catalogo">
-                  Ver catálogo
-                </a>
-                <a className="btn btn-outline-dark btn-lg" href="#contacto">
-                  Contacto
-                </a>
+                <a className="btn btn-dark btn-lg" href="#catalogo">Ver catálogo</a>
+                <a className="btn btn-outline-dark btn-lg" href="#carrito">Ver carrito</a>
               </div>
             </div>
 
@@ -116,7 +161,7 @@ function App() {
                 <i className="bi bi-stars" /> Catálogo dinámico
               </span>
               <span className="hero-chip chip-two">
-                <i className="bi bi-funnel" /> Filtros por categoría
+                <i className="bi bi-cart-check" /> Carrito interactivo
               </span>
             </div>
           </div>
@@ -130,7 +175,7 @@ function App() {
               <div>
                 <span className="eyebrow">CATÁLOGO</span>
                 <h2>Videojuegos disponibles</h2>
-                <p>El contenido se genera de forma dinámica a partir del archivo JSON.</p>
+                <p>El contenido se genera dinámicamente desde un archivo JSON y puede filtrarse por categoría.</p>
               </div>
 
               <span className="catalog-counter" aria-live="polite">
@@ -152,35 +197,41 @@ function App() {
                 <p className="mt-3 mb-0">Cargando videojuegos...</p>
               </div>
             ) : errorCarga ? (
-              <div className="alert alert-danger" role="alert">
-                {errorCarga}
-              </div>
+              <div className="alert alert-danger" role="alert">{errorCarga}</div>
             ) : (
               <VideojuegoList
                 videojuegos={videojuegosFiltrados}
-                onEliminar={eliminarVideojuego}
+                onAgregarCarrito={agregarAlCarrito}
               />
             )}
           </div>
         </section>
 
+        <Carrito
+          items={carrito}
+          onSumar={sumarCantidad}
+          onRestar={restarCantidad}
+          onQuitar={quitarDelCarrito}
+          onVaciar={vaciarCarrito}
+        />
+
         <section id="gestion" className="management-section section-space">
           <div className="container">
-            <div className="row g-4 align-items-stretch">
+            <div className="row g-4 align-items-start">
               <div className="col-lg-5">
-                <div className="section-heading management-copy h-100">
+                <div className="section-heading management-copy">
                   <span className="eyebrow">REACT + STATE</span>
                   <h2>Gestiona el catálogo</h2>
                   <p>
-                    Agrega un videojuego nuevo desde este formulario. También puedes eliminar
-                    elementos directamente desde cada tarjeta del catálogo.
+                    Esta sección representa la administración de la tienda. Permite agregar y
+                    eliminar videojuegos del catálogo sin mezclar esas acciones con la compra del cliente.
                   </p>
 
                   <div className="management-note">
                     <i className="bi bi-info-circle" />
                     <span>
-                      Los cambios se mantienen durante la sesión y demuestran la actualización
-                      dinámica del estado de React.
+                      Los cambios se mantienen durante la sesión y demuestran actualización dinámica
+                      mediante state y props de React.
                     </span>
                   </div>
                 </div>
@@ -188,6 +239,7 @@ function App() {
 
               <div className="col-lg-7">
                 <CatalogoForm onAgregar={agregarVideojuego} />
+                <CatalogoAdmin videojuegos={videojuegos} onEliminar={eliminarVideojuego} />
               </div>
             </div>
           </div>

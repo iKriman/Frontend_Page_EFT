@@ -496,3 +496,134 @@ textarea.form-control {
     height: 240px;
   }
 }
+
+/* Carrito de compras */
+.cart-section {
+  background: var(--game-bg);
+}
+
+.cart-empty {
+  padding: 56px 24px;
+  margin-top: 30px;
+}
+
+.cart-empty > i {
+  font-size: 3rem;
+  color: var(--game-primary);
+}
+
+.cart-card {
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cart-item-info strong {
+  color: var(--game-dark);
+}
+
+.cart-item-info span {
+  color: var(--game-muted);
+  font-size: 0.82rem;
+}
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.cart-quantity {
+  min-width: 42px;
+  opacity: 1 !important;
+  color: var(--game-dark) !important;
+  border-color: var(--game-border) !important;
+}
+
+.cart-subtotal {
+  min-width: 100px;
+  text-align: right;
+  color: var(--game-dark);
+}
+
+.cart-total {
+  color: var(--game-primary);
+  font-size: 1.5rem;
+}
+
+/* Administración del catálogo */
+.management-list {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.admin-game-list {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.admin-game-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--game-border);
+}
+
+.admin-game-item:last-child {
+  border-bottom: 0;
+}
+
+.admin-game-item > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-game-item strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--game-dark);
+  font-size: 0.9rem;
+}
+
+.admin-game-item small {
+  color: var(--game-muted);
+}
+
+@media (max-width: 767.98px) {
+  .cart-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cart-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .cart-subtotal {
+    min-width: 0;
+  }
+}

@@ -1,4 +1,4 @@
-function Navbar({ totalVideojuegos }) {
+function Navbar({ totalVideojuegos, totalCarrito }) {
   return (
     <nav className="navbar navbar-expand-lg bg-white border-bottom sticky-top" aria-label="Navegación principal">
       <div className="container py-2">
@@ -26,22 +26,24 @@ function Navbar({ totalVideojuegos }) {
 
         <div className="collapse navbar-collapse" id="mainNavbar">
           <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-            <li className="nav-item">
-              <a className="nav-link" href="#inicio">Inicio</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#catalogo">Catálogo</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#gestion">Gestión</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contacto">Contacto</a>
-            </li>
-            <li className="nav-item ms-lg-2">
-              <span className="badge rounded-pill text-bg-dark px-3 py-2">
+            <li className="nav-item"><a className="nav-link" href="#inicio">Inicio</a></li>
+            <li className="nav-item"><a className="nav-link" href="#catalogo">Catálogo</a></li>
+            <li className="nav-item"><a className="nav-link" href="#carrito">Carrito</a></li>
+            <li className="nav-item"><a className="nav-link" href="#gestion">Gestión</a></li>
+            <li className="nav-item"><a className="nav-link" href="#contacto">Contacto</a></li>
+            <li className="nav-item ms-lg-2 d-flex gap-2 align-items-center">
+              <span className="badge rounded-pill text-bg-light border px-3 py-2">
                 {totalVideojuegos} juegos
               </span>
+              <a className="btn btn-dark btn-sm position-relative px-3" href="#carrito" aria-label={`Carrito con ${totalCarrito} productos`}>
+                <i className="bi bi-cart3 me-1" />
+                Carrito
+                {totalCarrito > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {totalCarrito}
+                  </span>
+                )}
+              </a>
             </li>
           </ul>
         </div>

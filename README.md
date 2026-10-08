@@ -4,7 +4,7 @@ Proyecto final de **Desarrollo Frontend I (PFY2201)**. La aplicación simula una
 
 ## Objetivo
 
-El sitio permite visualizar un catálogo de videojuegos, filtrar el contenido por categoría, buscar productos, agregar o eliminar videojuegos durante la sesión y enviar un formulario de contacto con validaciones.
+El sitio permite visualizar un catálogo de videojuegos reales, filtrar por categoría, buscar productos, agregarlos a un carrito de compras, administrar el catálogo durante la sesión y enviar un formulario de contacto con validaciones.
 
 ## Tecnologías utilizadas
 
@@ -22,16 +22,19 @@ El sitio permite visualizar un catálogo de videojuegos, filtrar el contenido po
 2. **Tarjetas generadas dinámicamente:** `VideojuegoList` recorre el arreglo con `map()` y renderiza un componente `VideojuegoCard` por cada elemento.
 3. **Filtro por categoría:** permite mostrar todos los juegos o solo una categoría específica.
 4. **Buscador:** filtra por nombre, categoría y descripción.
-5. **Gestión del catálogo:** el formulario de gestión permite agregar videojuegos al estado y cada tarjeta permite eliminarlos.
-6. **Formulario de contacto:** valida nombre, email y mensaje antes de aceptar el envío.
-7. **Diseño responsivo:** utiliza Bootstrap 5 y estilos personalizados para adaptarse a escritorio, tablet y móvil.
-8. **Navegación responsiva:** barra Bootstrap con menú colapsable en pantallas pequeñas.
+5. **Carrito de compras:** permite agregar juegos, aumentar o disminuir cantidades, quitar productos, vaciar el carrito y calcular el total.
+6. **Gestión del catálogo:** el formulario administrativo permite agregar videojuegos al estado y una lista separada permite eliminarlos.
+7. **Formulario de contacto:** valida nombre, email y mensaje antes de aceptar el envío.
+8. **Diseño responsivo:** utiliza Bootstrap 5 y estilos personalizados para adaptarse a escritorio, tablet y móvil.
+9. **Navegación responsiva:** barra Bootstrap con menú colapsable y contador del carrito.
 
 ## Estructura principal
 
 ```text
 src/
 ├── components/
+│   ├── Carrito.jsx
+│   ├── CatalogoAdmin.jsx
 │   ├── CatalogoForm.jsx
 │   ├── ContactForm.jsx
 │   ├── Filtros.jsx
@@ -64,7 +67,7 @@ npm install
 npm run dev
 ```
 
-5. Abrir la dirección indicada por Vite en el navegador, normalmente `http://localhost:5173/Frontend_Page/`.
+5. Abrir la dirección indicada por Vite en el navegador, normalmente `http://localhost:5173/Frontend_Page_EFT/`.
 
 ## Compilación de producción
 
@@ -88,8 +91,10 @@ El resultado se genera en la carpeta `dist`.
 | Carga inicial | Se muestran todos los videojuegos del JSON. |
 | Filtro por categoría | Solo aparecen juegos de la categoría elegida. |
 | Buscador | El listado cambia mientras se escribe. |
-| Agregar videojuego | Se crea una nueva tarjeta y aumenta el contador. |
-| Eliminar videojuego | La tarjeta seleccionada desaparece del catálogo. |
+| Agregar al carrito | El producto se agrega y aumenta el contador del carrito. |
+| Modificar cantidad | Los botones + y - actualizan cantidad, subtotal y total. |
+| Agregar videojuego | Desde Gestión se crea una nueva tarjeta y aumenta el contador del catálogo. |
+| Eliminar videojuego | Desde Gestión el videojuego desaparece del catálogo. |
 | Contacto vacío | Se muestran mensajes de validación. |
 | Contacto correcto | Aparece un mensaje de envío exitoso. |
 | Vista móvil | Navbar colapsable y tarjetas en una sola columna. |
@@ -97,13 +102,13 @@ El resultado se genera en la carpeta `dist`.
 
 ## Despliegue en GitHub Pages
 
-El proyecto mantiene la configuración de Vite para publicarse bajo `/Frontend_Page/`.
+El proyecto mantiene la configuración de Vite para publicarse bajo `/Frontend_Page_EFT/`.
 
 ```bash
 npm run deploy
 ```
 
-Repositorio utilizado en el examen anterior: `https://github.com/iKriman/Frontend_Page`
+Repositorio de la EFT: `https://github.com/iKriman/Frontend_Page_EFT`
 
 ## Autor
 
