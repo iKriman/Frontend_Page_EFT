@@ -1,66 +1,66 @@
 [
   {
     "id": 1,
-    "nombre": "Nebula Frontier",
-    "precio": 39990,
-    "categoria": "Aventura",
-    "imagen": "images/nebula-frontier.svg",
-    "descripcion": "Explora planetas desconocidos, resuelve antiguos misterios y construye tu propia ruta entre las estrellas."
+    "nombre": "ELDEN RING",
+    "precio": 44990,
+    "categoria": "RPG",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg",
+    "descripcion": "RPG de acción de FromSoftware ambientado en las Tierras Intermedias, con exploración de mundo abierto y combates exigentes."
   },
   {
     "id": 2,
-    "nombre": "Iron District",
-    "precio": 44990,
-    "categoria": "Acción",
-    "imagen": "images/iron-district.svg",
-    "descripcion": "Combate urbano de ritmo rápido con misiones tácticas, escenarios verticales y desafíos cada vez más intensos."
+    "nombre": "Resident Evil 4",
+    "precio": 39990,
+    "categoria": "Terror",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg",
+    "descripcion": "Remake del clásico survival horror de Capcom. Leon S. Kennedy debe rescatar a la hija del presidente en una aldea europea."
   },
   {
     "id": 3,
-    "nombre": "Kingdoms of Ember",
-    "precio": 52990,
+    "nombre": "Cyberpunk 2077",
+    "precio": 39990,
     "categoria": "RPG",
-    "imagen": "images/kingdoms-ember.svg",
-    "descripcion": "Forma un grupo de héroes, mejora habilidades y decide el destino de un reino amenazado por una antigua fuerza."
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg",
+    "descripcion": "RPG de mundo abierto desarrollado por CD PROJEKT RED, ambientado en Night City y protagonizado por V."
   },
   {
     "id": 4,
-    "nombre": "Turbo League 27",
-    "precio": 34990,
-    "categoria": "Deportes",
-    "imagen": "images/turbo-league.svg",
-    "descripcion": "Compite en campeonatos de alta velocidad con autos personalizables, eventos online y pistas alrededor del mundo."
+    "nombre": "DOOM Eternal",
+    "precio": 24990,
+    "categoria": "Acción",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/782330/header.jpg",
+    "descripcion": "Shooter en primera persona de ritmo frenético donde el Doom Slayer combate hordas demoníacas en la Tierra y otros mundos."
   },
   {
     "id": 5,
-    "nombre": "Echoes Below",
-    "precio": 28990,
-    "categoria": "Terror",
-    "imagen": "images/echoes-below.svg",
-    "descripcion": "Investiga una estación subterránea abandonada donde cada sonido puede revelar una pista o atraer algo peligroso."
+    "nombre": "Stardew Valley",
+    "precio": 8990,
+    "categoria": "Simulación",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg",
+    "descripcion": "Simulador de vida y agricultura creado por ConcernedApe, centrado en cultivar, explorar, pescar y conocer a los habitantes del valle."
   },
   {
     "id": 6,
-    "nombre": "Pixel Farm Stories",
-    "precio": 19990,
-    "categoria": "Simulación",
-    "imagen": "images/pixel-farm.svg",
-    "descripcion": "Recupera una pequeña granja, conoce a sus habitantes y construye una vida tranquila a tu propio ritmo."
+    "nombre": "Hades",
+    "precio": 12990,
+    "categoria": "Acción",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/1145360/header.jpg",
+    "descripcion": "Juego de acción de Supergiant Games en el que Zagreus intenta escapar del Inframundo con la ayuda de los dioses del Olimpo."
   },
   {
     "id": 7,
-    "nombre": "Chronicle Zero",
-    "precio": 46990,
-    "categoria": "RPG",
-    "imagen": "images/chronicle-zero.svg",
-    "descripcion": "Un RPG de ciencia ficción con combates por turnos, decisiones narrativas y múltiples finales posibles."
+    "nombre": "Red Dead Redemption 2",
+    "precio": 39990,
+    "categoria": "Aventura",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg",
+    "descripcion": "Aventura de mundo abierto de Rockstar Games que sigue a Arthur Morgan y la banda de Van der Linde en el ocaso del Salvaje Oeste."
   },
   {
     "id": 8,
-    "nombre": "Shadow Circuit",
-    "precio": 31990,
-    "categoria": "Acción",
-    "imagen": "images/shadow-circuit.svg",
-    "descripcion": "Infiltración, parkour y combate electrónico se mezclan en una ciudad futurista controlada por corporaciones."
+    "nombre": "The Witcher 3: Wild Hunt",
+    "precio": 19990,
+    "categoria": "RPG",
+    "imagen": "https://cdn.akamai.steamstatic.com/steam/apps/292030/header.jpg",
+    "descripcion": "RPG de mundo abierto protagonizado por Geralt de Rivia, un cazador de monstruos que busca a Ciri mientras la Cacería Salvaje la persigue."
   }
 ]
